@@ -10,7 +10,7 @@ rc('text', usetex=True)
 print 'test'
 
 # Open the data
-filename = 'Data1.txt'
+filename = 'gas 1-2.txt'
 #datafile = open(filename, 'r')
 #datafile.readline()
 x = []
@@ -21,8 +21,9 @@ print 'test'
 csvfile = csv.reader( open(filename,'r'), delimiter='\t')
 csvfile.next()
 for row in csvfile:
-    x.append( float(row[0]) )
-    y.append( float(row[1]) )
+    xtemp = float(row[0]) + float(row[1])/60
+    x.append( xtemp )
+    y.append( float(row[2]) )
 #for row in datafile.readlines():
         #row = row.strio().split('\t') # does this go here? My friend suggested it
 	#x.append(float(row[1]))
@@ -32,7 +33,7 @@ print len(x)
 
 
 # Smooth The data
-binsize = 32
+binsize = 48
 x2 = []
 y2 = []
 for i in range(binsize//2,len(x)-binsize//2):
@@ -52,7 +53,7 @@ for n in range(1,len(x2)-1):
 
 #plt.figure(1, figsize=(5,4))
 plt.scatter(maxx,maxy)
-plt.plot(x,y)
+plt.plot(x2,y2)
 #plt.axis( (theta_exp[0],theta_exp[-1],0,1.1) )
 plt.show()
 print 'test'

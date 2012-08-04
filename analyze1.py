@@ -52,8 +52,9 @@ for n in range(1,len(x2)-1):
 		maxy.append(y2[n])
 
 #plt.figure(1, figsize=(5,4))
-plt.scatter(maxx,maxy)
 plt.plot(x2,y2)
+plt.scatter(maxx,maxy)
+
 #plt.axis( (theta_exp[0],theta_exp[-1],0,1.1) )
 plt.show()
 print 'test'
